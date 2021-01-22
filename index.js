@@ -244,9 +244,17 @@ Use get20s to do the following:
 Example born in 1901 and died in 1959 - included -- born in 1889 and died in 1925 not included
 If correct, the function should return ["Salvador Dali", "Frida Kahlo"]*/
 
-function get20s(/*Your Code Here*/){
-  /*Your Code Here*/
+function get20s(array){
+  // const qualYears = "1900 - 2000"
+  const newArray = []
+  for(let i = 0;  i < array.length; i++){
+    if(array[i]["years"] <= "1900 - 2000" && array[i]["years"]){
+      newArray.push(array[i]['name'])
+    }
+  }
+  return newArray
 }
+
 
 
 
@@ -259,8 +267,16 @@ function get20s(/*Your Code Here*/){
  
  For example, if removeArtist is invoked with the artists array and the number 0, it will remove Amedeo Modigliani from our dataset and return the number 19. */
 
-function removeArtist(/*Your Code Here*/){
-   /*Your Code Here*/
+function removeArtist(array, index){
+  let i = 0;
+  while (i < array.length) {
+    if (array[i] === index) {
+      const newArray = array.splice(i, 1);
+    } else {
+      ++i;
+    }
+  }
+  return array
 }
    
 
@@ -280,8 +296,17 @@ Use addArtist to do the following:
 
 Example: addArtist(artists) should return the artists array with the above object added to the end of the array. */
 
-function addArtist(/*Your Code Here*/){
-    /*Your Code Here*/
+function addArtist(array){
+    let object = {
+      id: 20,
+      name: "Chantz", 
+      years: "Feb 12th",
+      genre: "Web Design", 
+      nationality: "American",
+      bio: "I'm Chantz. Live in Florida. "
+    }
+    array.push(object)
+    return array
   }
 
   
@@ -293,8 +318,11 @@ Use lotsOfArt to do the following:
 
 For example lotsOfArt(artists); will return ["Amedeo Modigliani", "Rene Magritte", ... "Albrecht Dürer"]*/
 
-function lotsOfArt(/*Your Code Here*/){
-  /*Your Code Here*/
+function lotsOfArt(array){
+  for(let i = 0; array.length; i++){
+    if(array[i]["paintings"] >= 100){
+      return array[i]["name"]
+    }
 }
 
 
