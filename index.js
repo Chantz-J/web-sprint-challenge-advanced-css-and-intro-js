@@ -268,15 +268,22 @@ function get20s(array){
  For example, if removeArtist is invoked with the artists array and the number 0, it will remove Amedeo Modigliani from our dataset and return the number 19. */
 
 function removeArtist(array, index){
-  let i = 0;
-  while (i < array.length) {
-    if (array[i] === index) {
-      const newArray = array.splice(i, 1);
-    } else {
-      ++i;
+  // let i = 0;
+  // while (i < array.length) {
+  //   if (array[i] === index) {
+  //         array.splice(i,1)
+  //   } else {
+  //     ++i;
+  //   }
+  // }
+  const newArray = []
+  for( let i = 0; i < array.length; i++){ 
+    if ( array[i] === index ){
+        const toPush = array.splice(i, 1); 
+        newArray.push(toPush)
     }
   }
-  return array
+  return array.length
 }
    
 
@@ -319,10 +326,14 @@ Use lotsOfArt to do the following:
 For example lotsOfArt(artists); will return ["Amedeo Modigliani", "Rene Magritte", ... "Albrecht Dürer"]*/
 
 function lotsOfArt(array){
-  for(let i = 0; array.length; i++){
-    if(array[i]["paintings"] >= 100){
-      return array[i]["name"]
+  const newArray = []
+  for(let i = 0; i < array.length; i++){
+    if (array[i]['paintings'] >= 100){
+      newArray.push(array[i]['name'])
     }
+    
+  }
+  return newArray
 }
 
 
@@ -381,9 +392,9 @@ function randomize(/* Code here */){
 /*Don't touch the code after this line! */
 export default{
   foo,
-  getArtistByIndex,
+   getArtistByIndex,
   get20s,
   removeArtist,
-  addArtist,
-  lotsOfArt
-}
+   addArtist,
+   lotsOfArt
+ }
